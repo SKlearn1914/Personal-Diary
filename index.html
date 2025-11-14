@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Personal Diary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="loginContainer" class="login-container">
+        <h2>Enter PIN to Access Your Diary</h2>
+        <input type="password" id="pinInput" placeholder="Enter PIN">
+        <button onclick="checkPIN()">Unlock</button>
+        <p id="pinError" class="error"></p>
+    </div>
+
+    <div id="diaryContainer" class="diary-container" style="display:none;">
+        <header>
+            <h1>My Advanced Diary</h1>
+            <div class="header-buttons">
+                <button onclick="toggleTheme()">🌙/☀️ Theme</button>
+                <button onclick="printEvents()">🖨 Print Event Sheet</button>
+            </div>
+        </header>
+
+        <div class="controls">
+            <input type="date" id="entryDate" onchange="loadEntry()">
+            <input type="text" id="searchInput" placeholder="Search entries..." oninput="searchEntries()">
+            <select id="moodSelect">
+                <option value="😊">😊 Happy</option>
+                <option value="😢">😢 Sad</option>
+                <option value="😡">😡 Angry</option>
+                <option value="😐">😐 Neutral</option>
+                <option value="😍">😍 Love</option>
+                <option value="🤔">🤔 Thoughtful</option>
+                <option value="😎">😎 Cool</option>
+                <option value="😴">😴 Tired</option>
+                <option value="😱">😱 Shocked</option>
+                <option value="🤯">🤯 Mindblown</option>
+                <!-- Add more emojis as needed -->
+            </select>
+            <input type="text" id="tagsInput" placeholder="Add tags (comma separated)">
+        </div>
+
+        <textarea id="diaryEntry" placeholder="Write your diary entry here..."></textarea>
+        <div class="buttons">
+            <button onclick="saveEntry()">💾 Save Entry</button>
+            <button onclick="newEntry()">🆕 New Entry</button>
+        </div>
+
+        <div id="statistics" class="statistics">
+            <h2>Mood Stats</h2>
+            <canvas id="moodChart"></canvas>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
